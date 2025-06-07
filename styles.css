@@ -19,6 +19,91 @@
     color: var(--white);
 }
 
+/* From Uiverse.io by alexruix */ 
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #263147;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.loader-logo {
+    width: 590px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    position: relative;
+}
+
+.loader:before {
+    content: '';
+    width: 48px;
+    height: 5px;
+    background: #4ebea250;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    border-radius: 50%;
+    animation: shadow324 0.5s linear infinite;
+}
+
+.loader:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #4ebea2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+    15% {
+        border-radius: 50%;
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    35% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shadow324 {
+    0%, 100% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.2, 1);
+    }
+}
+
+.loader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}                                                                                                                 
 
 
 * {
@@ -113,7 +198,7 @@ ul {
     padding-top: 8rem;
     padding-bottom: 5rem;
     width: 100%;
-    height: 100vh;
+
 }
 
 .hero-grid {
@@ -462,6 +547,20 @@ ul {
 
 .contact-value:hover {
     text-decoration: underline;
+}
+
+.phone-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+}
+
+.phone-numbers .contact-value {
+    display: block;
+    line-height: 1.2;
 }
 
 .contact-form {
@@ -814,40 +913,41 @@ ul {
     font-size: 0.875rem;
 }
 
-/* Reviews Section */
-.reviews {
-    padding: 5rem 0;
-    background-color: var(--black);
-    color: var(--white);
+.reviews-section {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.reviews-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 40px 0;
+}
+
+.reviews-slide {
+    display: none;
+    animation: fadeEffect 0.5s ease-in-out;
+}
+
+.reviews-slide.active {
+    display: block;
 }
 
 .reviews-grid {
-    position: relative;
-    display: flex;
-    gap: 2rem;
-    margin-top: 3rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    padding: 1rem;
-}
-
-.reviews-grid::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .review {
-    min-width: calc(33.333% - 1.33rem);
-    scroll-snap-align: start;
-    background-color: var(--white);
-    color: var(--black);
-    padding: 2rem;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    transition: transform 0.3s;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .review:hover {
@@ -855,54 +955,206 @@ ul {
 }
 
 .review-text {
-    font-size: 1.25rem;
-    line-height: 1.5;
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
     font-style: italic;
 }
 
 .review-author {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    border-top: 1px solid var(--medium-gray);
-    padding-top: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .author-name {
-    font-size: 1rem;
+    color: var(--red);
+    font-size: 18px;
     font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .author-company {
-    font-size: 0.875rem;
-    color: var(--red);
+    color: var(--dark-gray);
+    font-size: 14px;
 }
 
-.slider-nav {
+.carousel-controls {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
-.slider-dot {
+.prev-btn, .next-btn {
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: var(--black);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
     width: 8px;
     height: 8px;
+    background: var(--dark-gray);
     border-radius: 50%;
-    background-color: var(--white);
-    opacity: 0.5;
     cursor: pointer;
-    transition: opacity 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-.slider-dot.active {
-    opacity: 1;
+.dot.active {
+    background: var(--red);
+}
+
+@media (max-width: 992px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .review {
-        min-width: calc(100% - 2rem);
+    .reviews-grid {
+        grid-template-columns: 1fr;
     }
+    .reviews-section {
+        padding: 60px 0;
+    }
+}
+/* Reviews Section */
+.reviews-section {
+    background-color: var(--black);
+    padding: 60px 0;
+}
+
+.reviews-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.reviews-slide {
+    display: none;
+    animation: fadeEffect 0.5s ease-in-out;
+}
+
+.reviews-slide.active {
+    display: block;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
+
+.review {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.review:hover {
+    transform: translateY(-5px);
+}
+
+.review-text {
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.review-author {
+    text-align: center;
+}
+
+.author-name {
+    color: var(--red);
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.author-company {
+    color: var(--dark-gray);
+    font-size: 14px;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.prev-btn, .next-btn {
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: var(--black);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: var(--dark-gray);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background: var(--red);
+}
+
+@media (max-width: 992px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 .price{
     color: #CCCCCC;
@@ -3663,7 +3915,24 @@ ul {
     }
 }
 
-/* ... existing code ... */
+/* Map Section */
+.map-section {
+    padding: 60px 0;
+    background-color: #f5f5f5;
+}
+
+.map-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.map-section iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
 
 /* Image Popup Gallery - Enhanced Design */
 .popup-gallery {

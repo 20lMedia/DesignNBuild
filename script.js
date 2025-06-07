@@ -37,41 +37,26 @@ function initNavigation() {
 
 // Contact form handling
 function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                message: document.getElementById('message').value.trim()
-            };
-            
-            // Validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(formData.email)) {
-                showFormMessage('Please enter a valid email address', 'error');
-                return;
-            }
-            
-            // Validate all fields
-            if (!formData.name || !formData.email || !formData.message) {
-                showFormMessage('Please fill in all fields', 'error');
-                return;
-            }
-            
-            try {
-                // Simulate API call
-                await submitForm(formData);
-                showFormMessage('Thank you for your message! We will get back to you soon.', 'success');
-                contactForm.reset();
-            } catch (error) {
-                showFormMessage('There was an error sending your message. Please try again.', 'error');
-            }
-        });
-    }
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Format the message for WhatsApp
+        const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+        
+        // WhatsApp number (without any spaces or special characters)
+        const whatsappNumber = '919944206600';
+        
+        // Create WhatsApp URL
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+        
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, '_blank');
+    });
 }
 
 function showFormMessage(message, type) {
@@ -685,4 +670,65 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initProjects();
     disableImageSaving(); // Call the new function
+});
+
+// Loader functionality
+window.addEventListener('load', function() {
+    const loaderContainer = document.querySelector('.loader-container');
+    setTimeout(() => {
+        loaderContainer.classList.add('loader-hidden');
+        setTimeout(() => {
+            loaderContainer.style.display = 'none';
+        }, 500);
+    }, 1000);
+});
+
+// Reviews Carousel
+function initReviewsCarousel() {
+    const slides = document.querySelectorAll('.reviews-slide');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentSlide = 0;
+
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => showSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+        document.querySelectorAll('.dot')[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Auto-advance slides every 7 seconds
+    setInterval(nextSlide, 7000);
+
+    // Show first slide initially
+    showSlide(0);
+}
+
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initReviewsCarousel();
 });

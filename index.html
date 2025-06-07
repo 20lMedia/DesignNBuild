@@ -14,6 +14,12 @@
     <link rel="icon" type="image/x-icon" href="/img/logo.ico">
 </head>
 <body>
+    <div class="loader-container">
+        <div class="loader-content">
+            <img src="img/logo-dnb.jpeg" alt="DNB Logo" class="loader-logo">
+            <div class="loader"></div>
+        </div>
+    </div>
     <main class="main">
         <!-- Navigation -->
         <nav class="navigation">
@@ -49,8 +55,8 @@
                     <div class="hero-image">
                         <div class="carousel" style="border-radius: 12px; overflow: hidden;">
                             <img src="Domestic files/4d/7-min.jpg" class="carousel-img active" alt="Image 1">
-                            <img src="Commercial files/c1/bb2.png" class="carousel-img" alt="Image 2">
-                            <img src="Industrial files/i1/v3.png" class="carousel-img" alt="Image 3">
+                            <img src="Domestic files/2d/5-min.jpg" class="carousel-img" alt="Image 2">
+                            <img src="Domestic files/3d/8-min.jpg" class="carousel-img" alt="Image 3">
                         </div>
                     </div>
                 </div>
@@ -107,7 +113,7 @@
                 <h2 class="section-title" data-animate="fade-down">ABOUT US</h2>
                 <div class="about-grid">
                     <div class="about-left" data-animate="fade-right">
-                            <img src="img/logo-dnb.jpeg" alt="DNB Logo" class="about-image" style="border-radius: 0px; width: 100%; height: 100%; border:  solid 2px black;">
+                            <img src="img/logo-dnb.jpeg" alt="DNB Logo" class="about-image" >
                         
                     </div>
                     <div class="about-right" data-animate="fade-left">
@@ -182,7 +188,7 @@
         <!-- Services Section -->
         <section id="services" class="services">
             <div class="container">
-                <h2 class="section-title" data-animate="fade-down">Our Services</h2>
+                <h2 class="section-title" data-animate="fade-down">OUR SERVICES</h2>
                 <div class="services-grid">
                     <!-- Service 1 -->
                     <div class="service-item" data-animate="fade-up">
@@ -218,58 +224,92 @@
                     <div class="service-item" data-animate="fade-up">
                         <div class="service-icon">
                             <svg viewBox="0 0 64 64" class="service-svg" xmlns="http://www.w3.org/2000/svg" fill="white" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <!-- Central gear core -->
-                                <circle cx="32" cy="32" r="6" />
+                                <!-- Sofa base -->
+                                <rect x="8" y="30" width="48" height="20" rx="4" ry="4" />
                                 
-                                <!-- Gear teeth (vertical and horizontal) -->
-                                <path d="M32 12v-6M32 58v-6M12 32h-6M58 32h-6" />
+                                <!-- Sofa backrest -->
+                                <rect x="12" y="18" width="40" height="16" rx="3" ry="3" />
                                 
-                                <!-- Gear teeth (diagonals) -->
-                                <path d="M19.8 19.8l-4.2-4.2M48.4 48.4l-4.2-4.2M19.8 44.2l-4.2 4.2M48.4 15.6l-4.2 4.2" />
+                                <!-- Left armrest -->
+                                <rect x="4" y="30" width="8" height="12" rx="2" ry="2" />
                                 
-                                <!-- Outer gear ring -->
-                                <circle cx="32" cy="32" r="20" />
+                                <!-- Right armrest -->
+                                <rect x="52" y="30" width="8" height="12" rx="2" ry="2" />
+                                
+                                <!-- Sofa legs -->
+                                <line x1="12" y1="50" x2="12" y2="54" />
+                                <line x1="52" y1="50" x2="52" y2="54" />
                               </svg>
                         </div>
-                        <h3 class="service-title">MEP Solutions</h3>
-                        <p class="service-description">Integrated Mechanical, Electrical, and Plumbing design services for efficient and sustainable building systems.</p>
+                        <h3 class="service-title">Interior Solutions</h3>
+                        <p class="service-description">Integrated Interior Design Solutions for Functional, Aesthetic, and Sustainable Living Spaces.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Reviews Section -->
-        <section class="reviews">
+        <section class="reviews-section">
             <div class="container">
-                <h2 class="section-title">REVIEWS</h2>
-                <div class="reviews-grid">
-                    <!-- Review 1 -->
-                    <div class="review">
-                        <p class="review-text">"Had an opportunity to outsource my office interiors to DNB. Really i am amazed to see such a young vibrant and organized team. They completed our work on scheduled date and their work were really top notch. Out of my experience i would recommend them to anyone"</p>
-                        <div class="review-author">
-                            <h3 class="author-name">Gopinath KR</h3>
-                            <p class="author-company">Commercial Client</p>
+                <h2 class="section-title" style="color: white;">REVIEWS</h2>
+                <div class="reviews-carousel">
+                    <!-- Slide 1 -->
+                    <div class="reviews-slide active">
+                        <div class="reviews-grid">
+                            <div class="review">
+                                <p class="review-text">"We recently had DNB for a complete home renovation. The team of employees was great to work with given we needed a lot of help with design. I would highly recommend this company to anyone who has a home project to be done"</p>
+                                <div class="review-author">
+                                    <h3 class="author-name">Deva s</h3>
+                                    <p class="author-company">Owner, Deva Illam</p>
+                                </div>
+                            </div>
+                            <div class="review">
+                                <p class="review-text">"Extremely talented, your work looks great. It's clear that you care about your work and take the time to do it correctly. Thanks for your effort.....I am so happy.."</p>
+                                <div class="review-author">
+                                    <h3 class="author-name">Vijai karunakaran</h3>
+                                    <p class="author-company">Residential Client</p>
+                                </div>
+                            </div>
+                            <div class="review">
+                                <p class="review-text">"Professional team with excellent workmanship. They completed our project on time and within budget. Very satisfied with the results!"</p>
+                                <div class="review-author">
+                                    <h3 class="author-name">Commercial Client</h3>
+                                    <p class="author-company">Commercial Client</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Review 2 -->
-                    <div class="review">
-                        <p class="review-text">"We recently had DNB for a complete home renovation. We met several times to plan what we wanted. The team of employees was great to work with given we needed a lot of help with design. I would highly recommend this company to anyone who has a home project to be done"</p>
-                        <div class="review-author">
-                            <h3 class="author-name">Deva s</h3>
-                            <p class="author-company">Owner, Deva Illam</p>
+                    <!-- Slide 2 -->
+                    <div class="reviews-slide">
+                        <div class="reviews-grid">
+                            <div class="review">
+                                <p class="review-text">"DNB's attention to detail in our office renovation was exceptional. They understood our vision and delivered beyond expectations. The space is now both functional and aesthetically pleasing."</p>
+                                <div class="review-author">
+                                    <h3 class="author-name">Rajesh Kumar</h3>
+                                    <p class="author-company">Business Owner</p>
+                                </div>
+                            </div>
+                            <div class="review">
+                                <p class="review-text">"Outstanding service from start to finish. The team's expertise in both design and engineering made our home construction process smooth and worry-free. Highly recommended!"</p>
+                                <div class="review-author">
+                                    <h3 class="author-name">Priya Raman</h3>
+                                    <p class="author-company">Homeowner</p>
+                                </div>
+                            </div>
+                            <div class="review">
+                                <p class="review-text">"The integrated approach of DNB helped us save time and money on our industrial project. Their MEP solutions were innovative and energy-efficient. Great team to work with!"</p>
+                                <div class="review-author">
+                                    <h3 class="author-name">Senthil Kumar</h3>
+                                    <p class="author-company">Industrial Client</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Review 3 -->
-                    <div class="review">
-                        <p class="review-text">"Extremely talented, your work looks great. It's clear that you care about your work and take the time to do it correctly. I especially liked that you asked the client about their design preferences before creating. Thanks for your effort.....I am so happy.."</p>
-                        <div class="review-author">
-                            <h3 class="author-name">
-                                Vijai karunakaran</h3>
-                            <p class="author-company">Residential Client</p>
-                        </div>
-                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="prev-btn" aria-label="Previous reviews">&lt;</button>
+                    <div class="carousel-dots"></div>
+                    <button class="next-btn" aria-label="Next reviews">&gt;</button>
                 </div>
             </div>
         </section>
@@ -288,7 +328,11 @@
                             </p>
                             <p class="contact-item">
                                 <span class="contact-label">Phone</span>
-                                <a href="tel:+41123456789" class="contact-value">+91 99442 06600</a>
+                                <div class="phone-numbers">
+                                    <a href="tel:+919944208800" class="contact-value">+91 99442 08800</a>
+                                    <a href="tel:+919944406600" class="contact-value">+91 99444 06600</a>
+                                    <a href="tel:+919944206600" class="contact-value">+91 99442 06600</a>
+                                </div>
                             </p>
                             <p class="contact-item">
                                 <span class="contact-label">Office</span>
@@ -318,7 +362,15 @@
             </div>
         </section>
 
-        <!-- Footer -->
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <h2 class="section-title">FIND US HERE</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4650.7459583933605!2d79.80674497572947!3d11.934502936765142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536163cee49a1b%3A0x913cc44b5c2992be!2sDESIGN%20N%20BUILD%20(%20DNB%20)!5e1!3m2!1sen!2sin!4v1748503076894!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+        
+        <!-- Footer Section -->     
         <footer class="footer">
             <div class="container footer-container">
                 <p class="copyright">© 2025 Design N Build Interiors. All rights reserved.</p>
