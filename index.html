@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="/styles2.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/img/logo.ico">
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="Domestic files/4d/7-min.jpg">
+    <link rel="preload" as="image" href="img/logo-dnb.jpeg">
 </head>
 <body>
     <div class="loader-container">
@@ -54,9 +57,9 @@
                     </div>
                     <div class="hero-image">
                         <div class="carousel" style="border-radius: 12px; overflow: hidden;">
-                            <img src="Domestic files/4d/7-min.jpg" class="carousel-img active" alt="Image 1">
-                            <img src="Domestic files/2d/5-min.jpg" class="carousel-img" alt="Image 2">
-                            <img src="Domestic files/3d/8-min.jpg" class="carousel-img" alt="Image 3">
+                            <img src="Domestic files/4d/7-min.jpg" class="carousel-img active" alt="Image 1" width="800" height="600">
+                            <img src="Domestic files/2d/5-min.jpg" class="carousel-img" alt="Image 2" width="800" height="600" loading="lazy">
+                            <img src="Domestic files/3d/8-min.jpg" class="carousel-img" alt="Image 3" width="800" height="600" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -73,7 +76,7 @@
                     <div class="project">
                         <a href="Domestic files/work1.html" style="text-decoration: none; color: inherit;">
                             <div class="project-image" style="border-radius: 12px;">
-                                <img src="img/img1.jpg" alt="Domestic Space" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="img/img1.jpg" alt="Domestic Space" width="400" height="300" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <h3 class="project-title">Domestic Spaces</h3>
                             <p class="project-description">Crafting homes that blend comfort with sophisticated aesthetics</p>
@@ -84,7 +87,7 @@
                     <div class="project">
                         <a href="Commercial files/work2.html" style="text-decoration: none; color: inherit;">
                             <div class="project-image" style="border-radius: 12px;">
-                                <img src="img/img2.jpg" alt="Commercial Space" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="img/img2.jpg" alt="Commercial Space" width="400" height="300" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <h3 class="project-title">Commercial Spaces</h3>
                             <p class="project-description">Creating functional workspaces that inspire productivity</p>
@@ -95,7 +98,7 @@
                     <div class="project">
                         <a href="/Industrial files/work3.html" style="text-decoration: none; color: inherit;">
                             <div class="project-image"  style="border-radius: 12px;">
-                                <img src="img/img3.jpg" alt="Industrial Space" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="img/img3.jpg" alt="Industrial Space" width="400" height="300" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <h3 class="project-title">Industrial Spaces</h3>
                             <p class="project-description">Designing memorable experiences for Industries</p>

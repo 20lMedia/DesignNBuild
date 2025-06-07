@@ -193,6 +193,17 @@ ul {
     color: var(--red);
 }
 
+.project-image {
+
+    background-color: #f0f0f0; /* Placeholder color while loading */
+}
+
+.carousel {
+
+
+    background-color: #f0f0f0; /* Placeholder color while loading */
+}
+
 /* Hero Section */
 .hero {
     padding-top: 8rem;

@@ -9,6 +9,7 @@
     <meta name="author" content="Design N Build">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles2.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/img/logo.ico">
 </head>
@@ -55,7 +56,7 @@
                     <!-- Project 1 -->
                     <div class="project">
                         <div class="project-image">
-                            <img src="1d/12-min.jpg" alt="House with beige siding and front porch" style="width: 100%; height: 100%; object-fit: cover;" draggable="false">
+                            <img src="1d/12-min.jpg" alt="House with beige siding and front porch" style="width: 100%; height: 100%; object-fit: cover;" draggable="false" loading="lazy">
                             <div class="project-number"></div>
                         </div>
                         <h3 class="project-title">Mr.Tamizhselvan Residence</h3>
@@ -66,7 +67,7 @@
                     <!-- Project 2 -->
                     <div class="project">
                         <div class="project-image">
-                            <img src="2d/5-min.jpg" alt="House with beige siding and front porch" style="width: 100%; height: 100%; object-fit: cover;" draggable="false">
+                            <img src="2d/5-min.jpg" alt="House with beige siding and front porch" style="width: 100%; height: 100%; object-fit: cover;" draggable="false" loading="lazy">
                             <div class="project-number"></div>
                         </div>
                         <h3 class="project-title">Mr.Rajagopal Residence</h3>
@@ -77,7 +78,7 @@
                     <!-- Project 3 -->
                     <div class="project">
                         <div class="project-image">
-                            <img src="3d/8-min.jpg" alt="House with beige siding and front porch" style="width: 100%; height: 100%; object-fit: cover;" draggable="false">
+                            <img src="3d/8-min.jpg" alt="House with beige siding and front porch" style="width: 100%; height: 100%; object-fit: cover;" draggable="false" loading="lazy">
                             
                         </div>
                         <h3 class="project-title">Mrs.Deepthi Residence </h3>
@@ -88,7 +89,7 @@
                     <!-- Project 4 -->
                     <div class="project">
                         <div class="project-image">
-                            <img src="4d/3-min.jpg" alt="House with beige siding and front porch" style="width: 100%; height: 100%; object-fit: cover;" draggable="false"> 
+                            <img src="4d/3-min.jpg" alt="House with beige siding and front porch" style="width: 100%; height: 100%; object-fit: cover;" draggable="false" loading="lazy"> 
                         </div>
                         <h3 class="project-title">Mr.Martin Residence </h3>
                         <h2 class="price">60 lakhs </h2>
@@ -99,48 +100,53 @@
                     
         </section>
         <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h2 class="section-title">CONTACT</h2>
-                        <p class="contact-lead">Ready to transform your space? Let's discuss your vision.</p>
-                        <div class="contact-details">
-                            <p class="contact-item">
-                                <span class="contact-label">Email</span>
-                                <a href="mailto:hello@designnbuild.com" class="contact-value">hello@designnbuild.com</a>
-                            </p>
-                            <p class="contact-item">
-                                <span class="contact-label">Phone</span>
-                                <a href="tel:+41123456789" class="contact-value">+41 123 456 789</a>
-                            </p>
-                            <p class="contact-item">
-                                <span class="contact-label">Studio</span>
-                                <span class="contact-value">16, 9th cross, Anna Nagar Main Rd, Puducherry, 605005</span>
-                            </p>
+            <!-- Contact Section -->
+            <section id="contact" class="contact">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <h2 class="section-title">CONTACT</h2>
+                            <p class="contact-lead">Ready to transform your space? Let's discuss your vision.</p>
+                            <div class="contact-details">
+                                <p class="contact-item">
+                                    <span class="contact-label">Email</span>
+                                    <a href="mailto:contact@designnbuild.in" class="contact-value">contact@designnbuild.in</a>
+                                </p>
+                                <p class="contact-item">
+                                    <span class="contact-label">Phone</span>
+                                    <div class="phone-numbers">
+                                        <a href="tel:+919944208800" class="contact-value">+91 99442 08800</a>
+                                        <a href="tel:+919944406600" class="contact-value">+91 99444 06600</a>
+                                        <a href="tel:+919944206600" class="contact-value">+91 99442 06600</a>
+                                    </div>
+                                </p>
+                                <p class="contact-item">
+                                    <span class="contact-label">Office</span>
+                                    <span class="contact-value">16, 9th cross, Anna Nagar Main Rd, Puducherry, 605005</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-form-container">
+                            <form id="contactForm" class="contact-form">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" id="name" class="form-input" placeholder="Your name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" class="form-input" placeholder="Your email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea id="message" rows="4" class="form-input" placeholder="Tell us about your project">
+                                    </textarea>
+                                </div>
+                                <button type="submit" class="submit-button">Send Message</button>
+                            </form>
                         </div>
                     </div>
-                    <div class="contact-form-container">
-                        <form id="contactForm" class="contact-form">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" id="name" class="form-input" placeholder="Your name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" class="form-input" placeholder="Your email">
-                            </div>
-                            <div class="form-group">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea id="message" rows="4" class="form-input" placeholder="Tell us about your project">
-                                </textarea>
-                            </div>
-                            <button type="submit" class="submit-button">Send Message</button>
-                        </form>
-                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         <!-- Footer -->
         <footer class="footer">
