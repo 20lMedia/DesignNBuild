@@ -136,67 +136,68 @@ function initProjects() {
 
 // Gallery images arrays
 const galleryImages = {
-    '1d': [
-        '/Domestic files/1d/11-min.jpg',
-        '/Domestic files/1d/12-min.jpg',
-        '/Domestic files/1d/13-min.jpg',
-        '/Domestic files/1d/14-min.jpg',
-        '/Domestic files/1d/15-min.jpg',
-        '/Domestic files/1d/16-min.jpg',
-        '/Domestic files/1d/17-min.jpg',
-        '/Domestic files/1d/18-min.jpg',
-        '/Domestic files/1d/19-min.jpg'
-    ],
-    '2d': [
-        '/Domestic files/2d/0-min.jpg',
-        '/Domestic files/2d/2-min.jpg',
-        '/Domestic files/2d/3-min.jpg',
-        '/Domestic files/2d/4-min.jpg',
-        '/Domestic files/2d/5-min.jpg',
-        '/Domestic files/2d/6-min.jpg',
-        '/Domestic files/2d/7-min.jpg',
-        '/Domestic files/2d/8-min.jpg',
-        '/Domestic files/2d/9-min.jpg'
-    ],
-    '3d': [
-        '/Domestic files/3d/0-min.jpg',
-        '/Domestic files/3d/01-min.jpg',
-        '/Domestic files/3d/1-min.jpg',
-        '/Domestic files/3d/2-min.jpg',
-        '/Domestic files/3d/3-min.jpg',
-        '/Domestic files/3d/4-min.jpg',
-        '/Domestic files/3d/5-min.jpg',
-        '/Domestic files/3d/6-min.jpg',
-        '/Domestic files/3d/7-min.jpg',
-        '/Domestic files/3d/8-min.jpg',
-        '/Domestic files/3d/9-min.jpg'
-    ],
-    '4d': [
-        '/Domestic files/4d/1-min.jpg',
-        '/Domestic files/4d/2-min.jpg',
-        '/Domestic files/4d/3-min.jpg',
-        '/Domestic files/4d/4-min.jpg',
-        '/Domestic files/4d/5-min.jpg',
-        '/Domestic files/4d/6-min.jpg',
-        '/Domestic files/4d/7-min.jpg',
-        '/Domestic files/4d/8-min.jpg'
-    ],
-    'c1': [
-        '/Commercial files/c1/bb1.png',
-        '/Commercial files/c1/bb2.png',
-        '/Commercial files/c1/bb3.png',
-        '/Commercial files/c1/bb4.png',
-        '/Commercial files/c1/bb5.png',
-    ],
+'1d': [
+    '/domestic-files/1d/11-min.webp',
+    '/domestic-files/1d/12-min.webp',
+    '/domestic-files/1d/13-min.webp',
+    '/domestic-files/1d/14-min.webp',
+    '/domestic-files/1d/15-min.webp',
+    '/domestic-files/1d/16-min.webp',
+    '/domestic-files/1d/17-min.webp',
+    '/domestic-files/1d/18-min.webp',
+    '/domestic-files/1d/19-min.webp'
+],
+'2d': [
+    '/domestic-files/2d/0-min.jpg',
+    '/domestic-files/2d/2-min.jpg',
+    '/domestic-files/2d/3-min.jpg',
+    '/domestic-files/2d/4-min.jpg',
+    '/domestic-files/2d/5-min.jpg',
+    '/domestic-files/2d/6-min.jpg',
+    '/domestic-files/2d/7-min.jpg',
+    '/domestic-files/2d/8-min.jpg',
+    '/domestic-files/2d/9-min.jpg'
+],
+'3d': [
+    '/domestic-files/3d/0-min.jpg',
+    '/domestic-files/3d/01-min.jpg',
+    '/domestic-files/3d/1-min.jpg',
+    '/domestic-files/3d/2-min.jpg',
+    '/domestic-files/3d/3-min.jpg',
+    '/domestic-files/3d/4-min.jpg',
+    '/domestic-files/3d/5-min.jpg',
+    '/domestic-files/3d/6-min.jpg',
+    '/domestic-files/3d/7-min.jpg',
+    '/domestic-files/3d/8-min.jpg',
+    '/domestic-files/3d/9-min.jpg'
+],
+'4d': [
+    '/domestic-files/4d/1-min.jpg',
+    '/domestic-files/4d/2-min.jpg',
+    '/domestic-files/4d/3-min.jpg',
+    '/domestic-files/4d/4-min.jpg',
+    '/domestic-files/4d/5-min.jpg',
+    '/domestic-files/4d/6-min.jpg',
+    '/domestic-files/4d/7-min.jpg',
+    '/domestic-files/4d/8-min.jpg'
+],
+
+'c1': [
+    '/commercial-files/c1/bb1.webp',
+    '/commercial-files/c1/bb2.webp',
+    '/commercial-files/c1/bb3.webp',
+    '/commercial-files/c1/bb4.webp',
+    '/commercial-files/c1/bb5.webp',
+],
     'c2': [
-        '/Commercial files/c2/c1.png',
-        '/Commercial files/c2/c2.png',
+        '/commercial-files/c2/c1.webp',
+        '/commercial-files/c2/c2.webp',
     ],
     'i1': [
-        '/Industrial files/i1/v1.png',
-        '/Industrial files/i1/v2.png',
-        '/Industrial files/i1/v3.png',
-        '/Industrial files/i1/v4.png',
+        '/industrial-files/i1/v1.png',
+        '/industrial-files/i1/v2.png',
+        '/industrial-files/i1/v3.png',
+        '/industrial-files/i1/v4.png',
     ]
 };
 
