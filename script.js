@@ -148,38 +148,38 @@ const galleryImages = {
     '/domestic-files/1d/19-min.webp'
 ],
 '2d': [
-    '/domestic-files/2d/0-min.jpg',
-    '/domestic-files/2d/2-min.jpg',
-    '/domestic-files/2d/3-min.jpg',
-    '/domestic-files/2d/4-min.jpg',
-    '/domestic-files/2d/5-min.jpg',
-    '/domestic-files/2d/6-min.jpg',
-    '/domestic-files/2d/7-min.jpg',
-    '/domestic-files/2d/8-min.jpg',
-    '/domestic-files/2d/9-min.jpg'
+    '/domestic-files/2d/0-min.webp',
+    '/domestic-files/2d/2-min.webp',
+    '/domestic-files/2d/3-min.webp',
+    '/domestic-files/2d/4-min.webp',
+    '/domestic-files/2d/5-min.webp',
+    '/domestic-files/2d/6-min.webp',
+    '/domestic-files/2d/7-min.webp',
+    '/domestic-files/2d/8-min.webp',
+    '/domestic-files/2d/9-min.webp'
 ],
 '3d': [
-    '/domestic-files/3d/0-min.jpg',
-    '/domestic-files/3d/01-min.jpg',
-    '/domestic-files/3d/1-min.jpg',
-    '/domestic-files/3d/2-min.jpg',
-    '/domestic-files/3d/3-min.jpg',
-    '/domestic-files/3d/4-min.jpg',
-    '/domestic-files/3d/5-min.jpg',
-    '/domestic-files/3d/6-min.jpg',
-    '/domestic-files/3d/7-min.jpg',
-    '/domestic-files/3d/8-min.jpg',
-    '/domestic-files/3d/9-min.jpg'
+    '/domestic-files/3d/0-min.webp',
+    '/domestic-files/3d/01-min.webp',
+    '/domestic-files/3d/1-min.webp',
+    '/domestic-files/3d/2-min.webp',
+    '/domestic-files/3d/3-min.webp',
+    '/domestic-files/3d/4-min.webp',
+    '/domestic-files/3d/5-min.webp',
+    '/domestic-files/3d/6-min.webp',
+    '/domestic-files/3d/7-min.webp',
+    '/domestic-files/3d/8-min.webp',
+    '/domestic-files/3d/9-min.webp'
 ],
 '4d': [
-    '/domestic-files/4d/1-min.jpg',
-    '/domestic-files/4d/2-min.jpg',
-    '/domestic-files/4d/3-min.jpg',
-    '/domestic-files/4d/4-min.jpg',
-    '/domestic-files/4d/5-min.jpg',
-    '/domestic-files/4d/6-min.jpg',
-    '/domestic-files/4d/7-min.jpg',
-    '/domestic-files/4d/8-min.jpg'
+    '/domestic-files/4d/1-min.webp',
+    '/domestic-files/4d/2-min.webp',
+    '/domestic-files/4d/3-min.webp',
+    '/domestic-files/4d/4-min.webp',
+    '/domestic-files/4d/5-min.webp',
+    '/domestic-files/4d/6-min.webp',
+    '/domestic-files/4d/7-min.webp',
+    '/domestic-files/4d/8-min.webp'
 ],
 
 'c1': [
