@@ -72,11 +72,7 @@ input, textarea {
     transform: scale(1.1);
 }
 
-
-
-
-
-/* Improve Input Field Focus */
+/* Contact Form Input Focus Enhancement */
 .form-input {
     border: 1px solid #ccc; /* Ensure a default border */
     padding: 10px;
@@ -147,7 +143,7 @@ input, textarea {
 /* Enhanced Mobile Menu Animation */
 @keyframes slideIn {
     from {
-        transform: translateX(-100%);
+        transform: translateX(100%);
         opacity: 0;
     }
     to {
@@ -157,5 +153,5 @@ input, textarea {
 }
 
 .nav-links.active {
-    animation: slideIn 0.4s ease-out forwards;
+    animation: slideIn 0.25s ease-out forwards;
 }

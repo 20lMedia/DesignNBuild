@@ -47,26 +47,34 @@
     margin-bottom: 20px;
 }
 
+.loader-wrapper {
+    width: 48px;
+    height: 65px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .loader {
     width: 48px;
     height: 48px;
-    margin: auto;
     position: relative;
 }
 
-.loader:before {
+.loader::before {
     content: '';
     width: 48px;
     height: 5px;
     background: #4ebea250;
     position: absolute;
-    top: 60px;
+    bottom: -12px;
     left: 0;
     border-radius: 50%;
     animation: shadow324 0.5s linear infinite;
 }
 
-.loader:after {
+.loader::after {
     content: '';
     width: 100%;
     height: 100%;
@@ -76,6 +84,25 @@
     left: 0;
     border-radius: 4px;
     animation: jump7456 0.5s linear infinite;
+    transform-origin: center bottom;
+}
+
+@media (max-width: 480px) {
+    .loader-wrapper {
+        width: 32px;
+        height: 48px;
+    }
+
+    .loader {
+        width: 32px;
+        height: 32px;
+    }
+
+    .loader::before {
+        width: 32px;
+        height: 4px;
+        bottom: -10px;
+    }
 }
 
 @keyframes jump7456 {
