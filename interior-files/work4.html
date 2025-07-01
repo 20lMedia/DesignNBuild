@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Projects - Design N Build</title>
+    <meta name="description" content="Explore our portfolio of interior design projects by Design N Build in Pondicherry. See examples of our innovative interior design solutions.">
+    <meta name="keywords" content="Interior Design, Residential Interiors, Commercial Interiors, Space Planning, Interior Styling, Pondicherry, Portfolio, Work">
+    <meta name="author" content="Design N Build">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/logo.ico">
+</head>
+<body>
+    <main class="main">
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="container nav-container">
+                <a href="/index.html" class="logo">DESIGN N BUILD</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                <div class="nav-links">
+                    <a href="/index.html" class="nav-link">Home</a>
+                    <a href="/about.html" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Work Header -->
+        <section class="work-header">
+            <div class="container">
+                <h1 class="section-title">Interior Design</h1>
+                <p class="work-intro">Transforming spaces with innovative and stylish interior solutions.</p>
+                <div class="sort-container">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select" class="sort-select" style="border-radius: 25px;"> 
+                        <option value="default">Default</option>
+                        <option value="name-asc">Name: A to Z</option>
+                        <option value="name-desc">Name: Z to A</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="work-grid">
+            <div class="container">
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project" data-category="interior">
+                        <div class="project-image">
+                            <img src="1d/placeholder.jpg" alt="Interior Design Project 1" loading="lazy">
+                        </div>
+                        <h3 class="project-title">Modern Living Room</h3>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project" data-category="interior">
+                        <div class="project-image">
+                            <img src="2d/placeholder.jpg" alt="Interior Design Project 2" loading="lazy">
+                        </div>
+                        <h3 class="project-title">Luxury Bedroom</h3>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project" data-category="interior">
+                        <div class="project-image">
+                            <img src="3d/placeholder.jpg" alt="Interior Design Project 3" loading="lazy">
+                        </div>
+                        <h3 class="project-title">Contemporary Kitchen</h3>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project" data-category="interior">
+                        <div class="project-image">
+                            <img src="4d/placeholder.jpg" alt="Interior Design Project 4" loading="lazy">
+                        </div>
+                        <h3 class="project-title">Elegant Bathroom</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2 class="section-title">CONTACT</h2>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <span>123 Design Street, Pondicherry, India</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <a href="tel:+919876543210">+91 98765 43210</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">✉️</span>
+                                <a href="mailto:info@designnbuild.com">info@designnbuild.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Get in Touch</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>
