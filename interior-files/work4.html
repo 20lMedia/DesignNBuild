@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interior Design Gallery - Design N Build</title>
-    <meta name="description" content="Explore our portfolio of interior design projects by Design N Build in Pondicherry.">
+    <title>Interior Design Projects - Design N Build</title>
+    <meta name="description" content="Explore our portfolio of interior design projects by Design N Build in Pondicherry. See examples of our innovative interior design solutions.">
+    <meta name="keywords" content="Interior Design, Residential Interiors, Commercial Interiors, Space Planning, Interior Styling, Pondicherry, Portfolio, Work">
+    <meta name="author" content="Design N Build">
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/img/logo.ico">
@@ -220,6 +222,17 @@
             }
         }
     </style>
+=======
+    <title>Interior Design Projects - Design N Build</title>
+    <meta name="description" content="Explore our portfolio of interior design projects by Design N Build in Pondicherry. See examples of our innovative interior design solutions.">
+    <meta name="keywords" content="Interior Design, Residential Interiors, Commercial Interiors, Space Planning, Interior Styling, Pondicherry, Portfolio, Work">
+    <meta name="author" content="Design N Build">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/logo.ico">
+>>>>>>> 5b28cbd2b9cb4897b3d64d3ea450cfe37a41b1fe
 </head>
 <body>
     <main class="main">
@@ -241,16 +254,63 @@
         <!-- Work Header -->
         <section class="work-header">
             <div class="container">
+<<<<<<< HEAD
                 <h1 class="section-title">Interior Design Gallery</h1>
                 <p class="work-intro">A showcase of our finest interior design projects.</p>
+=======
+                <h1 class="section-title">Interior Design</h1>
+                <p class="work-intro">Transforming spaces with innovative and stylish interior solutions.</p>
+                <div class="sort-container">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select" class="sort-select" style="border-radius: 25px;"> 
+                        <option value="default">Default</option>
+                        <option value="name-asc">Name: A to Z</option>
+                        <option value="name-desc">Name: Z to A</option>
+                    </select>
+                </div>
+>>>>>>> 5b28cbd2b9cb4897b3d64d3ea450cfe37a41b1fe
             </div>
         </section>
 
         <!-- Projects Grid -->
         <section class="work-grid">
             <div class="container">
+<<<<<<< HEAD
                 <div id="gallery-grid" class="gallery-grid" draggable="false" loading="lazy">
                     <!-- Images will be dynamically inserted here by JavaScript -->
+=======
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project" data-category="interior">
+                        <div class="project-image">
+                            <img src="1d/placeholder.jpg" alt="Interior Design Project 1" loading="lazy">
+                        </div>
+                        <h3 class="project-title">Modern Living Room</h3>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project" data-category="interior">
+                        <div class="project-image">
+                            <img src="2d/placeholder.jpg" alt="Interior Design Project 2" loading="lazy">
+                        </div>
+                        <h3 class="project-title">Luxury Bedroom</h3>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project" data-category="interior">
+                        <div class="project-image">
+                            <img src="3d/placeholder.jpg" alt="Interior Design Project 3" loading="lazy">
+                        </div>
+                        <h3 class="project-title">Contemporary Kitchen</h3>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project" data-category="interior">
+                        <div class="project-image">
+                            <img src="4d/placeholder.jpg" alt="Interior Design Project 4" loading="lazy">
+                        </div>
+                        <h3 class="project-title">Elegant Bathroom</h3>
+                    </div>
                 </div>
             </div>
         </section>
@@ -261,42 +321,38 @@
                 <div class="contact-grid">
                     <div class="contact-info">
                         <h2 class="section-title">CONTACT</h2>
-                        <p class="contact-lead">Ready to transform your space? Let's discuss your vision.</p>
                         <div class="contact-details">
-                            <p class="contact-item">
-                                <span class="contact-label">Email</span>
-                                <a href="mailto:contact@designnbuild.in" class="contact-value">contact@designnbuild.in</a>
-                            </p>
-                            <p class="contact-item">
-                                <span class="contact-label">Phone</span>
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <span>16, 9th cross, Anna Nagar Main Rd, Puducherry, 605005</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
                                 <div class="phone-numbers">
                                     <a href="tel:+919944208800" class="contact-value">+91 99442 08800</a>
                                     <a href="tel:+919944406600" class="contact-value">+91 99444 06600</a>
                                     <a href="tel:+919944206600" class="contact-value">+91 99442 06600</a>
                                 </div>
-                            </p>
-                            <p class="contact-item">
-                                <span class="contact-label">Office</span>
-                                <span class="contact-value">16, 9th cross, Anna Nagar Main Rd, Puducherry, 605005</span>
-                            </p>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">✉️</span>
+                                <a href="mailto:contact@designnbuild.in" class="contact-value">contact@designnbuild.in</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-form-container">
-                        <form id="contactForm" class="contact-form">
+                    <div class="contact-form">
+                        <h3>Get in Touch</h3>
+                        <form id="contactForm">
                             <div class="form-group">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" id="name" class="form-input" placeholder="Your name">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" class="form-input" placeholder="Your email">
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
                             </div>
                             <div class="form-group">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea id="message" rows="4" class="form-input" placeholder="Tell us about your project">
-                                </textarea>
+                                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                             </div>
-                            <button type="submit" class="submit-button">Send Message</button>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -413,3 +469,10 @@
     </script>
 </body>
 </html>
+=======
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>
+>>>>>>> 5b28cbd2b9cb4897b3d64d3ea450cfe37a41b1fe
