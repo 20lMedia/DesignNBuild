@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Gallery - Design N Build</title>
+    <meta name="description" content="Explore our portfolio of interior design projects by Design N Build in Pondicherry.">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/logo.ico">
+    <style>
+        /* Modal Popup Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+            overflow: hidden;
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 95%;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Close button */
+        .close {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(0,0,0,0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            border: none;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .close:active {
+            transform: scale(0.9);
+        }
+
+        /* Navigation arrows */
+        .prev, .next {
+            cursor: pointer;
+            position: fixed;
+            top: 50%;
+            width: 44px;
+            height: 44px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s;
+            border-radius: 50%;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            -webkit-tap-highlight-color: transparent;
+            padding: 0;
+            z-index: 1000;
+        }
+        
+        .prev {
+            left: 10px;
+        }
+        
+        .next {
+            right: 10px;
+        }
+        
+        .prev:active, .next:active {
+            background-color: rgba(0,0,0,0.8);
+            transform: scale(0.9);
+        }
+        
+        /* Touch feedback for mobile */
+        @media (hover: hover) {
+            .prev:hover, .next:hover {
+                background-color: rgba(0,0,0,0.8);
+            }
+            .close:hover {
+                background: rgba(0,0,0,0.9);
+            }
+        }
+        
+        /* Mobile-specific styles */
+        @media screen and (max-width: 767px) {
+            .modal {
+                padding: 0;
+            }
+            
+            .modal-content {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            
+            .close {
+                top: 10px;
+                right: 10px;
+                width: 36px;
+                height: 36px;
+                font-size: 26px;
+                background: rgba(0,0,0,0.6);
+            }
+            
+            .prev, .next {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                background: rgba(0,0,0,0.6);
+            }
+            
+            .prev {
+                left: 5px;
+            }
+            
+            .next {
+                right: 5px;
+            }
+        }
+
+        /* Styles for the gallery grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 15px;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .modal {
+                padding-top: 110px;
+            }
+            .modal-content {
+                max-width: 95%;
+                max-height: 65vh;
+            }
+            .close {
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+                width: 35px;
+                height: 35px;
+            }
+            .prev, .next {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 10px;
+                padding: 10px;
+            }
+            .gallery-item img {
+                height: 150px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-item img {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="main">
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="container nav-container">
+                <a href="/index.html" class="logo">DESIGN N BUILD</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                <div class="nav-links">
+                    <a href="/index.html" class="nav-link">Home</a>
+                    <a href="/about.html" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Work Header -->
+        <section class="work-header">
+            <div class="container">
+                <h1 class="section-title">Interior Design Gallery</h1>
+                <p class="work-intro">A showcase of our finest interior design projects.</p>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="work-grid">
+            <div class="container">
+                <div id="gallery-grid" class="gallery-grid" draggable="false" loading="lazy">
+                    <!-- Images will be dynamically inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2 class="section-title">CONTACT</h2>
+                        <p class="contact-lead">Ready to transform your space? Let's discuss your vision.</p>
+                        <div class="contact-details">
+                            <p class="contact-item">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:contact@designnbuild.in" class="contact-value">contact@designnbuild.in</a>
+                            </p>
+                            <p class="contact-item">
+                                <span class="contact-label">Phone</span>
+                                <div class="phone-numbers">
+                                    <a href="tel:+919944208800" class="contact-value">+91 99442 08800</a>
+                                    <a href="tel:+919944406600" class="contact-value">+91 99444 06600</a>
+                                    <a href="tel:+919944206600" class="contact-value">+91 99442 06600</a>
+                                </div>
+                            </p>
+                            <p class="contact-item">
+                                <span class="contact-label">Office</span>
+                                <span class="contact-value">16, 9th cross, Anna Nagar Main Rd, Puducherry, 605005</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" class="form-input" placeholder="Your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-input" placeholder="Your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" rows="4" class="form-input" placeholder="Tell us about your project">
+                                </textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container footer-container">
+                <p class="copyright"> 2025 Design N Build Interiors. All rights reserved.</p>
+                <p class="copyright">Managed by <a target="_blank" style="color: aquamarine;" href="https://20lmedia.in">20L Media</a></p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/dnb_designnbuild" class="social-link">Instagram</a>
+                    <a href="https://www.facebook.com/p/DnB-Design-N-Build-100078156741167/" class="social-link">FaceBook</a>
+                    <a href="https://wa.me/919944206600" class="social-link">Whatsapp</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Modal Structure -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const imageFiles = [
+            "/interior-files/IMG-20250629-WA0001.jpg",
+            "/interior-files/IMG-20250629-WA0004.jpg",
+            "/interior-files/IMG-20250629-WA0006.jpg",
+            "/interior-files/IMG-20250629-WA0007.jpg",
+            "/interior-files/IMG-20250629-WA0010.jpg",
+            "/interior-files/IMG-20250705-WA0026.jpg",
+            "/interior-files/IMG-20250705-WA0028.jpg",
+            "/interior-files/IMG-20250705-WA0029.jpg",
+            "/interior-files/IMG-20250705-WA0030.jpg",
+            "/interior-files/IMG-20250705-WA0031.jpg",
+            "/interior-files/WhatsApp Image 2025-07-05 at 17.24.29_d290406a.jpg"
+        ];
+
+        const galleryGrid = document.getElementById('gallery-grid');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.modal .close');
+        const prevBtn = document.querySelector('.modal .prev');
+        const nextBtn = document.querySelector('.modal .next');
+
+        let currentIndex = 0;
+
+        // Populate the gallery
+        imageFiles.forEach((file, index) => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            const img = document.createElement('img');
+            img.src = file;
+            img.alt = `Interior Design ${index + 1}`;
+            img.loading = 'lazy';
+            img.dataset.index = index;
+            galleryItem.appendChild(img);
+            galleryGrid.appendChild(galleryItem);
+        });
+
+        // --- Modal Logic ---
+        function openModal(index) {
+            currentIndex = parseInt(index);
+            modalImg.src = imageFiles[currentIndex];
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + imageFiles.length) % imageFiles.length;
+            modalImg.src = imageFiles[currentIndex];
+        }
+
+        // --- Event Listeners ---
+        galleryGrid.addEventListener('click', function(e) {
+            if (e.target.tagName === 'IMG') {
+                openModal(e.target.dataset.index);
+            }
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        prevBtn.addEventListener('click', () => changeImage(-1));
+        nextBtn.addEventListener('click', () => changeImage(1));
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) { // Click outside the image
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (modal.style.display === 'block') {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+            }
+        });
+        
+        // Link main site script
+        const siteScript = document.createElement('script');
+        siteScript.src = '/script.js';
+        document.body.appendChild(siteScript);
+    });
+    </script>
+</body>
+</html>

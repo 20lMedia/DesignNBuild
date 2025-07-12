@@ -1,3 +1,23 @@
+// Disable right-click context menu
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
+
+// Disable keyboard shortcuts that might reveal context menu
+document.addEventListener('keydown', function(e) {
+    // Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, etc.
+    if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C' || e.key === 'K' || e.key === 'U')) ||
+        (e.ctrlKey && e.key === 'u') ||
+        (e.ctrlKey && e.key === 's') ||
+        (e.ctrlKey && e.key === 'S') ||
+        (e.metaKey && e.key === 's') || // Cmd+S (Mac)
+        (e.metaKey && e.key === 'S')) { // Cmd+Shift+S (Mac)
+        e.preventDefault();
+        return false;
+    }
+});
+
 // Initialize all components when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
@@ -121,8 +141,9 @@ function initProjects() {
                     showImagePopup(imageSrc, 'c2');
                 } else if (imageSrc.includes('/i1/')) { // Add this condition for i1 images
                     showImagePopup(imageSrc, 'i1');
-                }
-                else {
+                } else if (imageSrc.includes('/5d/')) { // Add this condition for 5d images
+                    showImagePopup(imageSrc, '5d');
+                } else {
                     showImagePopup(imageSrc, '1d');
                 }
             } else {
@@ -180,6 +201,18 @@ const galleryImages = {
     '/domestic-files/4d/6-min.webp',
     '/domestic-files/4d/7-min.webp',
     '/domestic-files/4d/8-min.webp'
+],
+
+'5d': [
+    '/domestic-files/5d/IMG-20250705-WA0023.jpg',
+    '/domestic-files/5d/IMG-20250705-WA0024.jpg',
+    '/domestic-files/5d/IMG-20250705-WA0025.jpg',
+    '/domestic-files/5d/IMG-20250705-WA0026.jpg',
+    '/domestic-files/5d/IMG-20250705-WA0028.jpg',
+    '/domestic-files/5d/IMG-20250705-WA0029.jpg',
+    '/domestic-files/5d/IMG-20250705-WA0030.jpg',
+    '/domestic-files/5d/IMG-20250705-WA0031.jpg',
+    '/domestic-files/5d/main.jpg'
 ],
 
 'c1': [
@@ -324,20 +357,56 @@ function showImagePopup(imageSrc, galleryType = '1d') {
     const thumbnailsContainer = popup.querySelector('.popup-thumbnails');
     thumbnailsContainer.innerHTML = '';
 
-    // Add thumbnails for the current gallery
+    // Create thumbnails for the current gallery
     currentGallery.forEach((imgSrc, index) => {
         const thumbnail = document.createElement('img');
         thumbnail.className = 'popup-thumbnail';
         thumbnail.src = imgSrc;
         thumbnail.alt = `Thumbnail ${index + 1}`;
         thumbnail.setAttribute('aria-label', `View image ${index + 1}`);
-        thumbnail.addEventListener('click', () => {
-            updateGalleryImage(index);
-        });
-        // Add event listener to prevent right-click saving on thumbnails
-        thumbnail.addEventListener('contextmenu', function(e) {
+        
+        // Add click event listener for navigation
+        thumbnail.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
+            
+            // Get the main image and loading spinner
+            const mainImage = popup.querySelector('.popup-image');
+            const loadingSpinner = popup.querySelector('.popup-loading');
+            
+            // Show loading spinner
+            if (loadingSpinner) loadingSpinner.style.display = 'block';
+            
+            // Update current index
+            popup.dataset.currentIndex = index;
+            
+            // Update counter
+            const counter = popup.querySelector('.popup-counter');
+            if (counter) {
+                counter.textContent = `${index + 1} / ${currentGallery.length}`;
+            }
+            
+            // Update active state of all thumbnails
+            const allThumbnails = popup.querySelectorAll('.popup-thumbnail');
+            allThumbnails.forEach(thumb => thumb.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Directly update the main image source
+            mainImage.onload = function() {
+                if (loadingSpinner) loadingSpinner.style.display = 'none';
+            };
+            mainImage.onerror = function() {
+                if (loadingSpinner) loadingSpinner.style.display = 'none';
+                mainImage.alt = 'Failed to load image';
+            };
+            mainImage.src = imgSrc;
         });
+        
+        // Set initial active state
+        if (index === currentIndex) {
+            thumbnail.classList.add('active');
+        }
+        
         thumbnailsContainer.appendChild(thumbnail);
     });
 
