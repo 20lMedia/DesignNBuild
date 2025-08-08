@@ -368,13 +368,24 @@ ul {
     z-index: 2;
 }
 
-.featured-project {
+.featured-projects-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
     margin-top: 4rem;
+}
+
+.featured-project {
     position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .featured-project-info {
@@ -599,6 +610,106 @@ ul {
     .featured-project-description {
         font-size: 1.05rem;
         max-width: 95%;
+    }
+}
+
+@media (max-width: 992px) {
+    .featured-projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .featured-project {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    /* Swiper Styles */
+    .featured-projects-swiper {
+        width: 100%;
+        padding: 0 0 40px;
+        display: none; /* Will be shown by JavaScript */
+    }
+    
+    .featured-projects-swiper .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    .featured-projects-swiper .featured-project {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Swiper Navigation */
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 36px;
+        height: 36px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        top: 50%;
+        margin-top: -18px;
+    }
+    
+    .swiper-button-prev {
+        left: 15px;
+    }
+    
+    .swiper-button-next {
+        right: 15px;
+    }
+    
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+        background: #4ebea2;
+    }
+    
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 900;
+        color: white;
+        text-align: center;
+        line-height: 36px;
+    }
+    
+    .swiper-button-prev:after {
+        content: '‹';
+        margin-left: -2px;
+    }
+    
+    .swiper-button-next:after {
+        content: '›';
+        margin-right: -2px;
+    }
+    
+    /* Swiper Pagination */
+    .swiper-pagination {
+        bottom: 5px;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: #4ebea2;
+        opacity: 0.4;
+        transition: all 0.3s ease;
+        margin: 0 4px !important;
+    }
+    
+    .swiper-pagination-bullet-active {
+        width: 24px;
+        border-radius: 4px;
+        background: #4ebea2;
+        opacity: 1;
+        transform: scale(1);
     }
 }
 

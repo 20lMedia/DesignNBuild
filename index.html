@@ -40,6 +40,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/styles.css?v=1.1" />
         <link rel="stylesheet" href="/styles2.css?v=1.1" />
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?v=1.1" />
       
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="/img/logo.ico" />
@@ -370,20 +372,55 @@
         <section class="featured-projects">
             <div class="container">
                 <h2 class="section-title">FEATURED PROJECTS</h2>
-                <div class="featured-project" data-animate>
-                    <div class="featured-project-info">
-                        <h3 class="featured-project-title">The Art of Living</h3>
-                        <p class="featured-project-description">
-                            A modern residential project that seamlessly blends contemporary design with functional living spaces.
-                        </p>
-                        <a href="domestic-files/work1.html" class="view-more-btn">VIEW Projects</a>
+                <!-- Desktop Grid View -->
+                <div class="featured-projects-grid desktop-view">
+                    <div class="featured-project" data-animate>
+                        <div class="featured-project-video">
+                            <video width="100%" height="100%" controls autoplay muted loop playsinline>
+                                <source src="DNB-2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                     </div>
-                    <div class="featured-project-video">
-                        <video width="100%" height="100%" controls autoplay muted playsinline>
-                            <source src="/DNB-Video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <div class="featured-project" data-animate>
+                        <div class="featured-project-video">
+                            <video width="100%" height="100%" controls autoplay muted loop playsinline>
+                                <source src="DNB-Video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Mobile Swiper View -->
+                <div class="swiper featured-projects-swiper mobile-view">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="featured-project">
+                                <div class="featured-project-video">
+                                    <video width="100%" height="100%" controls autoplay muted loop playsinline>
+                                        <source src="DNB-2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="featured-project">
+                                <div class="featured-project-video">
+                                    <video width="100%" height="100%" controls autoplay muted loop playsinline>
+                                        <source src="DNB-Video.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </section>
@@ -457,6 +494,63 @@
             </div>
         </footer>
     </main>
+    <!-- Add Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Initialize Swiper -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Swiper
+            const swiper = new Swiper('.featured-projects-swiper', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+                speed: 500,
+                effect: 'slide',
+                grabCursor: true,
+                centeredSlides: true,
+                spaceBetween: 20,
+                slidesPerView: 1,
+                
+                // Enable autoplay
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                
+                // Add pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                
+                // Add navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+            
+            // Function to handle view switching between mobile and desktop
+            function updateView() {
+                const isMobile = window.innerWidth <= 992; // Match the breakpoint from your CSS
+                document.querySelector('.desktop-view').style.display = isMobile ? 'none' : 'grid';
+                document.querySelector('.mobile-view').style.display = isMobile ? 'block' : 'none';
+                
+                // Update swiper when switching to mobile view
+                if (isMobile) {
+                    swiper.update();
+                }
+            }
+            
+            // Initial check
+            updateView();
+            
+            // Update on window resize
+            window.addEventListener('resize', updateView);
+        });
+    </script>
+    
     <!-- Add EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
